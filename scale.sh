@@ -1,9 +1,13 @@
 #!/bin/bash
 
-rm -rf 256x256 48x48 32x32 24x24 16x16
+sizes=(256 128 64 48 32 24 16)
 
-sizes=(256 48 32 24 16)
+# clean
+for size in "${sizes[@]}"; do
+  rm -rf "$size"x"$size"
+done
 
+# render
 for size in "${sizes[@]}"; do
   echo "resizing $size"
   
